@@ -1,0 +1,11 @@
+# Django stuff:
+#*.log
+db.sqlite3
+sqlite3.db-journal
+__pycache__/
+#local_settings.py
+/media
+/static
+/venv
+/.idea
+*.pyc
