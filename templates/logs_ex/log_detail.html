@@ -1,0 +1,16 @@
+{% if log_ex %}
+      <ul>
+        <p><strong>{{ log_ex.exercise_name }}</strong></p>
+      </ul>
+      <ul>
+        <p><strong>{{ log_ex.rep_number }}</strong></p>
+      </ul>
+      <ul>
+        <p><strong>{{ log_ex.weight }}</strong></p>
+      </ul>
+      <ul>
+        <p><strong>{{ log_ex.date }}</strong></p>
+      </ul>
+{% else %}
+    <p>No exercise sets are available.</p>
+{% endif %}
