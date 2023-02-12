@@ -1,0 +1,28 @@
+{% extends 'logs_ex/base.html' %}
+
+{% block title %}Edit Exercise Log{% endblock %}
+
+{% block content %}
+  <form method="post">
+    {% csrf_token %}
+    {% for field in form %}
+      {{ field.label_tag }}<br>
+      {% if field.name == "date" %}
+        <input type="text" id="id_date" value="{{ field.value|date:'Y-m-d' }}" name="{{ field.name }}" required><br><br>
+      {% else %}
+        {{ field }}<br><br>
+      {% endif %}
+    {% endfor %}
+    <input type="submit" value="Update Log" style="color: white; background-color: green;">
+  </form>
+  <form action="{% url 'logs_ex:delete_log_ex' ex_id=log_ex_id %}" method="post">
+    {% csrf_token %}
+    <input type="submit" value="Delete Log" style="color: white; background-color: red; margin-top: 10px;">
+  </form>
+  <script>
+   document.addEventListener("DOMContentLoaded", function() {
+     let dateInput = document.getElementById("id_date");
+     dateInput.setAttribute("type", "date");
+   });
+ </script>
+{% endblock %}

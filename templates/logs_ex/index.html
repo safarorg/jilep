@@ -1,9 +1,0 @@
-{% if exercise_set_list %}
-    <ul>
-    {% for exercise_set in exercise_set_list %}
-        <li><a href="{% url 'logs_ex:log_ex_detail' exercise_set.id %}">{{ exercise_set.exercise_name }}</a></li>
-    {% endfor %}
-    </ul>
-{% else %}
-    <p>No exercise sets are available.</p>
-{% endif %}

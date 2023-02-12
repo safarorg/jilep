@@ -4,7 +4,8 @@ from . import views
 app_name = 'logs_ex'
 
 urlpatterns = [
-    path('', views.index, name='index'),
+    path('', views.log_home, name='log_home'),
     path('add_log_ex/', views.add_log_ex, name='add_log_ex'),
-    path('<int:ex_id>/', views.log_ex_detail, name='log_ex_detail'),
+    path('<int:ex_id>/', views.edit_log_ex, name='edit_log_ex'),
+    path('<int:ex_id>/delete/', views.delete_log_ex, name='delete_log_ex'),
 ]

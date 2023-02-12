@@ -1,0 +1,34 @@
+{% extends "logs_ex/base.html" %}
+
+{% block content %}
+{% for date, exercise_set_list in date_to_exercise_sets.items %}
+<h2>{{ date | date:"F j, Y" }}</h2>
+<table>
+   <thead>
+      <tr>
+         <th>Exercise Name</th>
+         <th>Weight (lbs)</th>
+         <th>Number of Reps</th>
+         <th>Exertion Level</th>
+         <th>Category</th>
+      </tr>
+   </thead>
+   <tbody>
+      {% for exercise_set in exercise_set_list %}
+      <tr>
+         <td style="text-align: center;"><a href="{% url 'logs_ex:edit_log_ex' exercise_set.id %}">{{ exercise_set.exercise_name }}</a></td>
+         <td style="text-align: center;"><a href="{% url 'logs_ex:edit_log_ex' exercise_set.id %}">{{ exercise_set.weight }}</td>
+         <td style="text-align: center;"><a href="{% url 'logs_ex:edit_log_ex' exercise_set.id %}">{{ exercise_set.number_of_reps }}</td>
+         <td style="text-align: center;"><a href="{% url 'logs_ex:edit_log_ex' exercise_set.id %}">{{ exercise_set.exertion_level }}</td>
+         <td style="text-align: center;"><a href="{% url 'logs_ex:edit_log_ex' exercise_set.id %}">{{ exercise_set.exercise_category }}</td>
+      </tr>
+      {% endfor %}
+   </tbody>
+</table>
+{% endfor %}
+<br>
+<p class="add-log-link">
+   <a href="{% url 'logs_ex:add_log_ex' %}" class="big-button">Add a exercise log</a>
+</p>
+
+ {% endblock %}

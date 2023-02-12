@@ -1,6 +1,15 @@
-<form method="post">
-    {% csrf_token %}
-    {{ form.as_p }}
-    <input type="submit" value="Submit">
-</form>
+{% extends 'logs_ex/base.html' %}
 
+{% block title %}Add Exercise Log{% endblock %}
+
+{% block content %}
+  <form method="post">
+    {% csrf_token %}
+    {% for field in form %}
+      {{ field.label_tag }}<br>
+      {{ field }}<br><br>
+    {% endfor %}
+    <input type="submit" value="Submit">
+  </form>
+
+{% endblock %}
