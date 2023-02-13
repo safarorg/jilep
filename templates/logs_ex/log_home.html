@@ -1,6 +1,7 @@
-{% extends "logs_ex/base.html" %}
+{% extends "base.html" %}
 
 {% block content %}
+
 {% for date, exercise_set_list in date_to_exercise_sets.items %}
 <h2>{{ date | date:"F j, Y" }}</h2>
 <table>
@@ -28,7 +29,7 @@
 {% endfor %}
 <br>
 <p class="add-log-link">
-   <a href="{% url 'logs_ex:add_log_ex' %}" class="big-button">Add a exercise log</a>
+   <a href="{% url 'logs_ex:add_log_ex' %}" class="big-button">Add an exercise log</a>
 </p>
 
- {% endblock %}
+{% endblock %}
